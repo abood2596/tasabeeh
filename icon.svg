@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="114" fill="#0B0D14"/>
+  <circle cx="256" cy="256" r="220" fill="none" stroke="rgba(200,136,90,0.3)" stroke-width="2"/>
+  <circle cx="256" cy="256" r="160" fill="#1F2548" stroke="rgba(200,136,90,0.5)" stroke-width="2"/>
+  <!-- Beads around circle -->
+  <circle cx="256" cy="96"  r="18" fill="#D4AF6A"/>
+  <circle cx="369" cy="143" r="16" fill="#C8885A"/>
+  <circle cx="416" cy="256" r="16" fill="#C8885A"/>
+  <circle cx="369" cy="369" r="16" fill="#C8885A"/>
+  <circle cx="256" cy="416" r="16" fill="#C8885A"/>
+  <circle cx="143" cy="369" r="16" fill="#C8885A"/>
+  <circle cx="96"  cy="256" r="16" fill="#C8885A"/>
+  <circle cx="143" cy="143" r="16" fill="#C8885A"/>
+  <!-- Center -->
+  <circle cx="256" cy="256" r="30" fill="#E8C49A" opacity="0.9"/>
+  <circle cx="256" cy="256" r="18" fill="#D4AF6A"/>
+</svg>
