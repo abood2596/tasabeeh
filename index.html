@@ -16,18 +16,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg-deep:#07080F;--bg-mid:#0F1225;--bg-surface:#171D3A;--bg-card:#1A2040;
-  --accent-warm:#D4824A;--accent-glow:#F0C888;--accent-cool:#5A9BC8;
-  --accent-green:#4DC87A;--accent-rose:#C85A7A;--accent-gold:#E8B84A;
-  --text-primary:#F5EFE8;--text-dim:#7A82A8;--text-muted:#3A4068;
-  --glow-warm:rgba(212,130,74,0.22);--glow-cool:rgba(90,155,200,0.18);
+  --bg-void:#050508;--bg-deep:#0A0A14;--bg-layer:#0F0F20;--bg-glass:#14142A;
+  --bg-mid:#0F0F20;--bg-surface:#14142A;--bg-card:rgba(20,18,45,0.96);
+  --accent-warm:#E8A830;--accent-glow:#FFD700;--accent-cool:#9B6DFF;
+  --accent-green:#20C878;--accent-rose:#C84060;--accent-gold:#FFD700;
+  --accent-violet:#6B4DC8;--accent-sapphire:#4080FF;--accent-crimson:#C84060;
+  --text-primary:#F8F4FF;--text-dim:#9890B8;--text-muted:#504870;
+  --glow-warm:rgba(232,168,48,0.28);--glow-cool:rgba(155,109,255,0.22);
+  --glow-green:rgba(32,200,120,0.2);--glow-violet:rgba(107,77,200,0.25);
+  --card-border:rgba(155,109,255,0.14);--card-glow:rgba(155,109,255,0.08);
   --dur-fast:180ms;--dur-med:320ms;--dur-slow:600ms;--dur-breath:3200ms;
   --ease-spirit:cubic-bezier(0.34,1.56,0.64,1);--ease-out:cubic-bezier(0,0,0.2,1);
   --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden;overscroll-behavior:none}
-body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(--text-primary);-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Naskh Arabic','Traditional Arabic','Scheherazade New',serif;background:var(--bg-void);color:var(--text-primary);-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(107,77,200,0.08) 0%,transparent 50%),
+  radial-gradient(ellipse 60% 40% at 80% 80%,rgba(232,168,48,0.06) 0%,transparent 50%),
+  radial-gradient(ellipse 100% 80% at 50% 50%,rgba(5,5,8,0) 0%,rgba(5,5,8,0.4) 100%);
+  pointer-events:none}
 .stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) ease-in-out infinite alternate}
 @keyframes twinkle{0%{opacity:var(--o1,.1);transform:scale(1)}100%{opacity:var(--o2,.6);transform:scale(1.4)}}
@@ -77,7 +86,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 /* ── HOME ── */
 #screen-home{align-items:center;justify-content:flex-start;padding-top:calc(var(--safe-top) + 60px)!important;background:radial-gradient(ellipse 80% 60% at 50% 55%,rgba(212,130,74,0.1) 0%,transparent 68%)}
 .home-top{position:absolute;top:calc(var(--safe-top)+14px);width:100%;display:flex;justify-content:space-between;padding:0 22px}
-.home-time{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-dim);font-weight:300}
+.home-time{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:13px;color:var(--text-dim);font-weight:300}
 .home-greeting{font-size:13px;color:var(--text-dim)}
 .dhikr-wrap{display:flex;flex-direction:column;align-items:center;width:100%;padding:0 20px}
 .dhikr-name{font-size:22px;font-weight:700;color:var(--text-primary);text-align:center;margin-bottom:4px}
@@ -100,7 +109,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
   transition:transform 80ms,box-shadow 80ms;overflow:hidden;
 }
 .orb-ball::before{content:'';position:absolute;top:14%;left:22%;width:32%;height:24%;border-radius:50%;background:rgba(255,255,255,0.05);filter:blur(7px)}
-.orb-count{font-family:'DM Sans',sans-serif;font-size:clamp(44px,12vw,64px);font-weight:200;color:var(--text-primary);line-height:1;letter-spacing:-3px;text-shadow:0 0 24px rgba(200,136,90,0.25)}
+.orb-count{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:clamp(44px,12vw,64px);font-weight:200;color:var(--text-primary);line-height:1;letter-spacing:-3px;text-shadow:0 0 24px rgba(200,136,90,0.25)}
 .orb-of{font-size:12px;color:var(--text-dim);margin-top:6px;font-family:'DM Sans',sans-serif}
 .orb-ball.tapped{transform:scale(0.95);box-shadow:0 0 65px rgba(200,136,90,0.32),inset 0 0 30px rgba(200,136,90,0.08)}
 .orb-ball.done{background:radial-gradient(circle at 34% 32%,rgba(212,175,106,0.38),rgba(200,136,90,0.18) 55%,rgba(11,13,20,0.75));border-color:rgba(212,175,106,0.5);box-shadow:0 0 60px rgba(212,175,106,0.25)}
@@ -128,7 +137,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .dhikr-card:active{transform:scale(0.98);border-color:rgba(200,136,90,0.3)}
 .dhikr-card-top{display:flex;justify-content:space-between;align-items:flex-start}
 .dhikr-name-card{font-size:19px;font-weight:600}
-.dhikr-count-card{font-family:'DM Sans',sans-serif;font-size:30px;font-weight:200;color:var(--accent-warm);line-height:1}
+.dhikr-count-card{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:30px;font-weight:200;color:var(--accent-warm);line-height:1}
 .dhikr-virtue{font-size:12px;color:var(--text-dim);margin-top:8px;line-height:1.65}
 .dhikr-source-tag{font-size:10px;color:var(--text-muted);margin-top:4px}
 .d-bar{margin-top:12px;height:2px;background:rgba(255,255,255,0.05);border-radius:1px;overflow:hidden}
@@ -147,7 +156,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .bg-group{background:var(--bg-card);border:1px solid rgba(255,255,255,0.04);border-radius:14px;padding:13px 15px;cursor:pointer;display:flex;align-items:center;gap:13px;transition:all var(--dur-fast);margin-bottom:10px}
 .bg-group:active{transform:scale(0.98)}
 .bg-group.due{border-color:rgba(200,136,90,0.38);background:rgba(200,136,90,0.04)}
-.bg-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;flex-shrink:0}
+.bg-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:12px;font-weight:600;flex-shrink:0}
 .bg-info{flex:1}.bg-title{font-size:15px;font-weight:600}.bg-range{font-size:11px;color:var(--text-dim);margin-top:2px}
 .bg-right{text-align:left;flex-shrink:0}
 .m-dots{display:flex;gap:3px;justify-content:flex-end;margin-bottom:3px}
@@ -160,7 +169,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .rtab.on{background:var(--bg-card);color:var(--text-primary);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
 .rpanel{display:none}.rpanel.on{display:block}
 .points-bar{background:var(--bg-card);border:1px solid rgba(212,175,106,0.14);border-radius:16px;padding:16px;display:flex;align-items:center;gap:16px;margin-bottom:16px}
-.pts-num{font-family:'DM Sans',sans-serif;font-size:38px;font-weight:200;color:var(--accent-gold)}
+.pts-num{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:38px;font-weight:200;color:var(--accent-gold)}
 .pts-lbl{font-size:13px;color:var(--text-dim)}.pts-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
 .habit-card{background:var(--bg-card);border:1px solid rgba(255,255,255,0.04);border-radius:18px;padding:16px;margin-bottom:12px;position:relative;overflow:hidden}
 .hc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
@@ -170,7 +179,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .hc-badge.quit{background:rgba(200,122,138,0.1);color:var(--accent-rose);border:1px solid rgba(200,122,138,0.2)}
 .plant-box{height:66px;display:flex;align-items:flex-end;justify-content:center;margin:10px 0}
 .hweek{display:flex;gap:5px;margin:10px 0}
-.hday{flex:1;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text-muted);font-family:'DM Sans',sans-serif;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);transition:all var(--dur-fast)}
+.hday{flex:1;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text-muted);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);transition:all var(--dur-fast)}
 .hday.done{background:rgba(107,200,138,0.14);border-color:rgba(107,200,138,0.28);color:var(--accent-green)}
 .hday.today{border-color:var(--accent-warm);color:var(--accent-warm)}
 .hc-foot{display:flex;align-items:center;gap:8px;margin-top:10px}
@@ -197,7 +206,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .r-badge.got .r-name{color:var(--accent-gold)}
 /* ── ISTIGHFAR ── */
 .marathon-hero{background:linear-gradient(150deg,rgba(123,167,200,0.1),rgba(200,136,90,0.05));border:1px solid rgba(123,167,200,0.14);border-radius:22px;padding:22px 20px;margin-bottom:18px;text-align:center}
-.m-big{font-family:'DM Sans',sans-serif;font-size:76px;font-weight:200;color:var(--text-primary);line-height:1;letter-spacing:-4px}
+.m-big{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:76px;font-weight:200;color:var(--text-primary);line-height:1;letter-spacing:-4px}
 .m-goal{font-size:14px;color:var(--text-dim);margin-top:4px}
 .m-bar-wrap{margin:14px 0 6px}
 .m-bar{height:5px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
@@ -226,7 +235,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .p-summary{background:var(--bg-card);border-radius:16px;padding:15px;display:flex;margin-bottom:20px;border:1px solid rgba(255,255,255,0.04)}
 .ps-item{flex:1;text-align:center;position:relative}
 .ps-item+.ps-item::before{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,0.05)}
-.ps-num{font-family:'DM Sans',sans-serif;font-size:24px;font-weight:300;color:var(--text-primary)}
+.ps-num{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:24px;font-weight:300;color:var(--text-primary)}
 .ps-lbl{font-size:10px;color:var(--text-muted);margin-top:2px}
 .p-doors{display:flex;flex-direction:column;gap:11px}
 .p-door{background:var(--bg-card);border:1px solid rgba(255,255,255,0.04);border-radius:18px;padding:15px 18px;display:flex;align-items:center;gap:14px;transition:all var(--dur-fast);position:relative;overflow:hidden}
@@ -239,7 +248,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .p-door.now .p-door-icon svg{fill:var(--accent-warm)}
 .p-door.prayed .p-door-icon svg{fill:var(--accent-green)}
 .p-info{flex:1}.p-name{font-size:16px;font-weight:600}
-.p-time{font-size:13px;color:var(--text-dim);font-family:'DM Sans',sans-serif;margin-top:2px}
+.p-time{font-size:13px;color:var(--text-dim);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;margin-top:2px}
 .p-msg{font-size:11px;color:var(--text-muted);margin-top:2px;line-height:1.5}
 .p-acts{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
 .p-chk{width:34px;height:34px;border-radius:50%;border:2px solid rgba(107,200,138,0.3);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--dur-fast) var(--ease-spirit)}
@@ -258,7 +267,7 @@ body{font-family:'Noto Naskh Arabic',serif;background:var(--bg-deep);color:var(-
 .insight-txt{font-size:14px;color:var(--text-primary);line-height:1.85}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .sg-card{background:var(--bg-card);border-radius:15px;padding:15px;border:1px solid rgba(255,255,255,0.04)}
-.sg-num{font-family:'DM Sans',sans-serif;font-size:28px;font-weight:300;color:var(--text-primary);line-height:1}
+.sg-num{font-family:'DM Sans','Segoe UI',system-ui,sans-serif;font-size:28px;font-weight:300;color:var(--text-primary);line-height:1}
 .sg-lbl{font-size:11px;color:var(--text-dim);margin-top:6px}
 .sg-ch{font-size:10px;margin-top:4px;color:var(--accent-green)}
 .chart-card{background:var(--bg-card);border-radius:18px;padding:16px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.04)}
@@ -336,6 +345,96 @@ canvas.stat-canvas{width:100%!important;border-radius:6px;display:block}
 .toast.ok{border-color:rgba(107,200,138,0.3);color:var(--accent-green)}
 .toast.err{border-color:rgba(200,122,138,0.3);color:var(--accent-rose)}
 /* ── ONBOARD ── */
+
+/* ═══ RESCUE PROTOCOL ═══ */
+.rescue-btn{
+  width:100%;padding:20px;border-radius:18px;border:none;cursor:pointer;
+  font-family:'Noto Naskh Arabic',serif;font-size:17px;font-weight:700;
+  background:linear-gradient(135deg,rgba(200,64,96,0.9),rgba(155,109,255,0.7));
+  color:#fff;margin-bottom:16px;position:relative;overflow:hidden;
+  box-shadow:0 0 30px rgba(200,64,96,0.3),0 4px 20px rgba(0,0,0,0.4);
+  transition:all 0.2s;animation:sos-pulse 2s ease-in-out infinite;
+}
+@keyframes sos-pulse{
+  0%,100%{box-shadow:0 0 30px rgba(200,64,96,0.3),0 4px 20px rgba(0,0,0,0.4)}
+  50%{box-shadow:0 0 50px rgba(200,64,96,0.5),0 4px 30px rgba(200,64,96,0.2)}
+}
+.rescue-btn:active{transform:scale(0.97)}
+
+/* Full-screen rescue overlay */
+.rescue-overlay{
+  position:fixed;inset:0;z-index:400;
+  background:rgba(5,5,8,0.97);backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:calc(var(--safe-top) + 20px) 24px calc(var(--safe-bottom) + 24px);
+  overflow-y:auto;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.rescue-overlay.open{opacity:1;pointer-events:all}
+.rescue-header{width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.rescue-close{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:50%;width:40px;height:40px;cursor:pointer;color:var(--text-dim);
+  font-size:20px;display:flex;align-items:center;justify-content:center}
+.rescue-title{font-size:20px;font-weight:700;color:#fff;text-align:center}
+
+/* Breath circle */
+.breath-circle{
+  width:180px;height:180px;border-radius:50%;margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  border:2px solid rgba(155,109,255,0.4);
+  background:radial-gradient(circle,rgba(155,109,255,0.15),rgba(5,5,8,0.8));
+  box-shadow:0 0 40px rgba(155,109,255,0.2);
+  cursor:pointer;transition:all 0.3s;
+}
+.breath-circle.inhale{animation:bc-inhale 4s ease-in-out forwards}
+.breath-circle.hold{animation:bc-hold 7s ease-in-out forwards}
+.breath-circle.exhale{animation:bc-exhale 8s ease-in-out forwards}
+@keyframes bc-inhale{0%{transform:scale(1)}100%{transform:scale(1.35);box-shadow:0 0 70px rgba(155,109,255,0.4)}}
+@keyframes bc-hold{0%,100%{transform:scale(1.35);box-shadow:0 0 70px rgba(155,109,255,0.4)}}
+@keyframes bc-exhale{0%{transform:scale(1.35)}100%{transform:scale(1);box-shadow:0 0 40px rgba(155,109,255,0.2)}}
+.breath-word{font-size:22px;font-weight:700;color:var(--accent-cool);margin-bottom:4px}
+.breath-num{font-family:'DM Sans',sans-serif;font-size:40px;font-weight:200;color:#fff}
+
+/* Step cards */
+.rescue-step{
+  width:100%;background:rgba(20,18,45,0.95);border-radius:16px;padding:16px 18px;
+  margin-bottom:10px;border:1px solid rgba(155,109,255,0.15);
+  display:flex;gap:14px;align-items:flex-start;
+  opacity:0.4;transition:all 0.4s;
+}
+.rescue-step.active{opacity:1;border-color:rgba(155,109,255,0.4);
+  box-shadow:0 0 20px rgba(155,109,255,0.1)}
+.rescue-step.done{opacity:0.7;border-color:rgba(32,200,120,0.3)}
+.step-num{width:32px;height:32px;border-radius:50%;background:rgba(155,109,255,0.2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:var(--accent-cool)}
+.rescue-step.done .step-num{background:rgba(32,200,120,0.2);color:var(--accent-green)}
+.step-txt{font-size:14px;color:var(--text-primary);line-height:1.7;flex:1}
+.step-btn{margin-top:10px;width:100%;padding:11px;border-radius:10px;border:none;
+  cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:13px;font-weight:600;
+  background:rgba(155,109,255,0.2);color:var(--accent-cool);transition:all 0.2s}
+.step-btn:active{background:rgba(155,109,255,0.35);transform:scale(0.97)}
+.step-btn.done-btn{background:rgba(32,200,120,0.15);color:var(--accent-green)}
+
+/* Countdown ring */
+.countdown-ring{width:120px;height:120px;margin:0 auto 16px;position:relative}
+.countdown-ring svg{transform:rotate(-90deg)}
+.cdr-bg{fill:none;stroke:rgba(255,255,255,0.06);stroke-width:4}
+.cdr-fill{fill:none;stroke:var(--accent-crimson);stroke-width:4;stroke-linecap:round;
+  transition:stroke-dashoffset 1s linear}
+.cdr-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;font-size:32px;font-weight:300;color:#fff}
+
+/* Wave animation for urge surfing */
+.wave-box{
+  width:100%;height:80px;background:rgba(155,109,255,0.05);border-radius:14px;
+  overflow:hidden;margin-bottom:14px;position:relative;border:1px solid rgba(155,109,255,0.1)
+}
+.wave-svg{position:absolute;bottom:0;width:200%;animation:wave-move 3s linear infinite}
+@keyframes wave-move{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.wave-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:12px;color:rgba(155,109,255,0.7);white-space:nowrap}
+
 .onboard{position:fixed;inset:0;z-index:1000;background:var(--bg-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 28px;text-align:center}
 .ob-logo{font-size:52px;margin-bottom:20px;line-height:1;filter:drop-shadow(0 0 20px rgba(200,136,90,0.4))}
 .ob-title{font-size:28px;font-weight:700;margin-bottom:10px}
@@ -366,6 +465,125 @@ canvas.stat-canvas{width:100%!important;border-radius:6px;display:block}
 .nav-items{gap:10px!important}
 /* Stronger orb breath */
 @keyframes breathe{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.22);opacity:1}}
+
+
+/* ═══ ROYAL OBSIDIAN SYSTEM ═══ */
+.dhikr-card,.habit-card,.marathon-hero,.p-door,.sg-card,.chart-card,
+.fadl-box,.sci-card,.bg-group,.mtype,.points-bar,.backup-status{
+  background:rgba(18,16,42,0.92)!important;
+  border-color:var(--card-border)!important;
+  box-shadow:0 4px 24px rgba(0,0,0,0.5),0 0 0 1px rgba(155,109,255,0.06),inset 0 1px 0 rgba(255,255,255,0.04)!important;
+  backdrop-filter:blur(20px)!important;
+}
+.dhikr-card:active,.bg-group:active,.mtype:active{
+  border-color:rgba(232,168,48,0.4)!important;
+  box-shadow:0 4px 32px rgba(232,168,48,0.12),0 0 0 1px rgba(232,168,48,0.2)!important;
+}
+/* Royal gradient titles */
+.scr-title,.dhikr-name{
+  background:linear-gradient(135deg,var(--accent-glow) 0%,var(--accent-cool) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+/* Glowing count */
+.dhikr-count-card{
+  background:linear-gradient(135deg,var(--accent-gold),var(--accent-warm))!important;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text!important;
+  font-weight:300!important;
+}
+/* Nav royal style */
+.nav-btn{
+  background:rgba(14,12,32,0.97)!important;
+  border-color:rgba(155,109,255,0.15)!important;
+  box-shadow:0 4px 16px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.04)!important;
+}
+.nav-btn.current{
+  background:rgba(232,168,48,0.1)!important;
+  border-color:rgba(232,168,48,0.4)!important;
+  box-shadow:0 0 20px rgba(232,168,48,0.15)!important;
+}
+#nav-trigger{
+  background:linear-gradient(135deg,var(--accent-warm),var(--accent-cool))!important;
+  box-shadow:0 0 30px rgba(232,168,48,0.4),0 0 60px rgba(155,109,255,0.15),0 4px 16px rgba(0,0,0,0.5)!important;
+}
+/* Royal orb */
+.orb-ball{
+  background:radial-gradient(circle at 32% 28%,rgba(232,168,48,0.18),rgba(155,109,255,0.1) 45%,rgba(5,5,8,0.9))!important;
+  border-color:rgba(232,168,48,0.35)!important;
+  box-shadow:0 0 60px rgba(232,168,48,0.18),0 0 120px rgba(155,109,255,0.1),inset 0 0 40px rgba(232,168,48,0.06)!important;
+}
+.orb-ball.tapped{
+  box-shadow:0 0 90px rgba(232,168,48,0.4),0 0 160px rgba(155,109,255,0.18),inset 0 0 50px rgba(232,168,48,0.12)!important;
+}
+.orb-outer-ring{border-color:rgba(232,168,48,0.2)!important}
+.orb-outer-ring::before{background:var(--accent-gold)!important;box-shadow:0 0 12px var(--accent-gold),0 0 24px var(--accent-gold)!important}
+.orb-count{
+  background:linear-gradient(180deg,#FFF8E8 0%,var(--accent-gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(232,168,48,0.4))!important;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.25);opacity:1}}
+.orb-breath-bg{background:radial-gradient(circle,rgba(232,168,48,0.08),rgba(155,109,255,0.04) 40%,transparent 65%)!important}
+/* Prayer doors royal */
+.p-door.now{
+  background:rgba(232,168,48,0.07)!important;
+  border-color:rgba(232,168,48,0.4)!important;
+  box-shadow:0 0 30px rgba(232,168,48,0.1),inset 0 0 20px rgba(232,168,48,0.03)!important;
+}
+.p-door.now .p-door-icon{background:rgba(232,168,48,0.12)!important}
+.p-door.now .p-door-icon svg{fill:var(--accent-gold)!important}
+.p-door.prayed{border-color:rgba(32,200,120,0.25)!important}
+/* Stats cards */
+.sg-num{
+  background:linear-gradient(135deg,var(--accent-glow),var(--accent-cool));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+/* Progress bars */
+.d-bar-fill{background:linear-gradient(90deg,var(--accent-warm),var(--accent-cool))!important}
+.m-bar-fill{background:linear-gradient(90deg,var(--accent-violet),var(--accent-gold))!important}
+/* Baqarah */
+.fadl-title{color:var(--accent-glow)!important}
+.bg-group.due{border-color:rgba(232,168,48,0.4)!important;background:rgba(232,168,48,0.04)!important}
+/* Habit check button */
+.chk-btn.on{background:linear-gradient(135deg,var(--accent-green),rgba(32,200,120,0.7))!important;border-color:var(--accent-green)!important}
+/* Input modal */
+.inp-card,.modal-sheet{background:rgba(10,8,24,0.98)!important;border-color:rgba(155,109,255,0.2)!important}
+.inp-btn.ok{background:linear-gradient(135deg,var(--accent-warm),var(--accent-cool))!important}
+/* NoFap hero upgrade */
+#nofap-hero{
+  background:linear-gradient(160deg,rgba(155,109,255,0.1),rgba(200,64,96,0.05))!important;
+  border-color:rgba(155,109,255,0.25)!important;
+  box-shadow:0 4px 32px rgba(155,109,255,0.1),inset 0 1px 0 rgba(255,255,255,0.04)!important;
+}
+#nf-days{
+  background:linear-gradient(180deg,#FFFFFF 0%,var(--accent-cool) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(155,109,255,0.5));
+}
+#nf-start-btn{box-shadow:0 4px 24px rgba(155,109,255,0.3),0 0 40px rgba(232,168,48,0.1)!important}
+/* Toast */
+.toast{background:rgba(14,12,32,0.98)!important;border-color:rgba(155,109,255,0.25)!important;box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 1px rgba(155,109,255,0.1)!important}
+.toast.ok{border-color:rgba(32,200,120,0.4)!important;color:var(--accent-green)!important}
+/* Scr-pad top glow */
+#s-home{background:radial-gradient(ellipse 90% 70% at 50% 60%,rgba(155,109,255,0.06) 0%,rgba(232,168,48,0.04) 50%,transparent 80%)!important}
+/* Section titles */
+.st-sec-title{color:rgba(155,109,255,0.7)!important;letter-spacing:1px}
+/* Points display */
+.pts-num{background:linear-gradient(135deg,var(--accent-gold),var(--accent-warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Recovery tabs */
+.rtab.on{background:rgba(155,109,255,0.12)!important;color:var(--accent-cool)!important;border:1px solid rgba(155,109,255,0.2)}
+/* Period buttons */
+.pb-btn.on{background:rgba(232,168,48,0.1)!important;color:var(--accent-gold)!important;border-color:rgba(232,168,48,0.3)!important}
+/* Bulk add button */
+.bulk-add-btn{
+  background:rgba(232,168,48,0.12)!important;
+  border-color:rgba(232,168,48,0.35)!important;
+  box-shadow:0 0 16px rgba(232,168,48,0.15)!important;
+  color:var(--accent-gold)!important;
+  font-size:20px!important;font-weight:700!important;
+}
+/* Onboard */
+.ob-title{background:linear-gradient(135deg,var(--accent-glow),var(--accent-cool));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ob-btn{box-shadow:0 8px 32px rgba(232,168,48,0.35),0 0 60px rgba(155,109,255,0.15)!important}
 
 body.dawn .orb-breath-bg{background:radial-gradient(circle,rgba(123,167,200,0.1),transparent 65%)}
 </style>
@@ -452,52 +670,84 @@ body.dawn .orb-breath-bg{background:radial-gradient(circle,rgba(123,167,200,0.1)
 
 <!-- NOFAP -->
 <div class="screen scr-pad" id="s-nofap" data-s="nofap">
-  <div class="scr-head"><div><div class="scr-title">التعافي من الإدمان</div><div class="scr-sub">رحلة الطهارة والحرية</div></div></div>
+  <div class="scr-head"><div>
+    <div class="scr-title">رحلة الطهارة</div>
+    <div class="scr-sub">NoFap — تعافٍ علمي وإسلامي</div>
+  </div></div>
 
-  <!-- Main counter -->
-  <div id="nofap-hero" style="background:linear-gradient(150deg,rgba(90,155,200,0.12),rgba(212,130,74,0.06));border:1px solid rgba(90,155,200,0.2);border-radius:22px;padding:24px 20px;margin-bottom:18px;text-align:center">
-    <div style="font-size:11px;color:var(--text-muted);letter-spacing:1px;margin-bottom:8px">أيام الحرية</div>
-    <div id="nf-days" style="font-family:'DM Sans',sans-serif;font-size:88px;font-weight:200;color:var(--text-primary);line-height:1;letter-spacing:-5px">0</div>
+  <!-- Hero counter -->
+  <div id="nofap-hero" style="border-radius:22px;padding:22px 20px;margin-bottom:14px;text-align:center;background:linear-gradient(160deg,rgba(155,109,255,0.1),rgba(200,64,96,0.05));border:1px solid rgba(155,109,255,0.2)">
+    <div style="font-size:11px;color:var(--text-muted);letter-spacing:1.5px;margin-bottom:6px">أيام الحرية</div>
+    <div id="nf-days" style="font-family:'DM Sans',sans-serif;font-size:86px;font-weight:200;line-height:1;letter-spacing:-5px;color:#fff;filter:drop-shadow(0 0 30px rgba(155,109,255,0.5))">0</div>
     <div id="nf-since" style="font-size:12px;color:var(--text-dim);margin-top:4px">ابدأ رحلتك اليوم</div>
-    <div id="nf-phase-badge" style="display:inline-block;margin-top:12px;padding:6px 16px;border-radius:20px;font-size:12px;background:rgba(90,155,200,0.15);border:1px solid rgba(90,155,200,0.3);color:var(--accent-cool)">المرحلة: البداية</div>
+    <div id="nf-phase-badge" style="display:inline-block;margin-top:10px;padding:5px 16px;border-radius:20px;font-size:12px;background:rgba(155,109,255,0.12);border:1px solid rgba(155,109,255,0.28);color:var(--accent-cool)">البداية</div>
   </div>
 
-  <!-- Action buttons -->
-  <div style="display:flex;gap:10px;margin-bottom:18px">
-    <button id="nf-start-btn" style="flex:2;padding:15px;border-radius:14px;background:linear-gradient(135deg,var(--accent-cool),var(--accent-warm));border:none;cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700;color:var(--bg-deep);transition:all var(--dur-fast)">🕊️ بدأت من اليوم</button>
-    <button id="nf-relapse-btn" style="flex:1;padding:15px;border-radius:14px;background:var(--bg-card);border:1px solid rgba(200,90,122,0.25);cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--accent-rose);transition:all var(--dur-fast)">⚠ انتكاسة</button>
+  <!-- Start / Relapse buttons -->
+  <div style="display:flex;gap:10px;margin-bottom:14px">
+    <button id="nf-start-btn" style="flex:2;padding:15px;border-radius:14px;background:linear-gradient(135deg,var(--accent-cool),var(--accent-warm));border:none;cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700;color:var(--bg-void);box-shadow:0 4px 20px rgba(155,109,255,0.3)">🕊️ بدأت من اليوم</button>
+    <button id="nf-relapse-btn" style="flex:1;padding:15px;border-radius:14px;background:rgba(200,64,96,0.1);border:1px solid rgba(200,64,96,0.25);cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--accent-rose)">⚠ انتكاسة</button>
   </div>
 
-  <!-- Emergency SOS -->
-  <div id="nf-sos" style="background:linear-gradient(135deg,rgba(200,90,122,0.12),rgba(212,130,74,0.06));border:1px solid rgba(200,90,122,0.28);border-radius:18px;padding:18px;margin-bottom:18px">
-    <div style="font-size:14px;font-weight:700;color:var(--accent-rose);margin-bottom:10px">🆘 زر الطوارئ — تغلّب على الإغراء الآن</div>
-    <div id="sos-steps" style="display:flex;flex-direction:column;gap:8px"></div>
+  <!-- Stats row -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px" id="nf-stats-row">
+    <div style="background:rgba(18,16,42,0.92);border:1px solid rgba(155,109,255,0.12);border-radius:14px;padding:13px;text-align:center">
+      <div id="nf-best" style="font-family:'DM Sans',sans-serif;font-size:26px;font-weight:300;color:var(--accent-gold)">0</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-top:2px">أطول سلسلة</div>
+    </div>
+    <div style="background:rgba(18,16,42,0.92);border:1px solid rgba(155,109,255,0.12);border-radius:14px;padding:13px;text-align:center">
+      <div id="nf-runs-cnt" style="font-family:'DM Sans',sans-serif;font-size:26px;font-weight:300;color:var(--accent-cool)">0</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-top:2px">عدد الجولات</div>
+    </div>
+    <div style="background:rgba(18,16,42,0.92);border:1px solid rgba(155,109,255,0.12);border-radius:14px;padding:13px;text-align:center">
+      <div id="nf-rescue-cnt" style="font-family:'DM Sans',sans-serif;font-size:26px;font-weight:300;color:var(--accent-green)">0</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-top:2px">إنقاذ ناجح</div>
+    </div>
   </div>
+
+  <!-- BRAIN RECOVERY BARS -->
+  <div style="background:rgba(18,16,42,0.92);border:1px solid rgba(155,109,255,0.14);border-radius:18px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+      <span style="font-size:18px">🧠</span>
+      <span style="font-size:15px;font-weight:700;color:var(--accent-cool)">تعافي الدماغ — علم الأعصاب</span>
+    </div>
+    <div id="brain-bars"></div>
+  </div>
+
+  <!-- Daily challenge -->
+  <div style="background:rgba(18,16,42,0.92);border:1px solid rgba(232,168,48,0.18);border-radius:18px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+      <span style="font-size:18px">💪</span>
+      <span style="font-size:15px;font-weight:700;color:var(--accent-warm)">التحدي اليومي</span>
+      <div id="challenge-done-badge" style="display:none;margin-right:auto;background:rgba(32,200,120,0.15);border:1px solid rgba(32,200,120,0.3);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--accent-green)">✓ مكتمل</div>
+    </div>
+    <div id="daily-challenge-content"></div>
+  </div>
+
+  <!-- Motivational quote -->
+  <div id="nf-quote" style="background:rgba(18,16,42,0.92);border-radius:16px;padding:16px;margin-bottom:14px;border-right:3px solid var(--accent-cool)"></div>
+
+  <!-- Rescue button -->
+  <div id="nf-sos" style="margin-bottom:14px"></div>
 
   <!-- Tabs -->
-  <div class="rtabs" id="nf-tabs">
+  <div class="rtabs">
     <button class="rtab on" data-nftab="phases">المراحل</button>
     <button class="rtab" data-nftab="benefits">الفوائد</button>
-    <button class="rtab" data-nftab="triggers">المحفزات</button>
-    <button class="rtab" data-nftab="islam">الإطار الإسلامي</button>
+    <button class="rtab" data-nftab="islam">إسلامي</button>
+    <button class="rtab" data-nftab="history">السجل</button>
   </div>
   <div id="nf-panel-phases" class="rpanel on"></div>
   <div id="nf-panel-benefits" class="rpanel"></div>
-  <div id="nf-panel-triggers" class="rpanel">
-    <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px">سجّل محفزات الانتكاسة لتتجنبها:</div>
-    <div id="triggers-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px"></div>
-    <button class="add-btn" id="add-trigger-btn">+ إضافة محفز</button>
-  </div>
-  <div id="nf-panel-islam" style="display:none"></div>
-
-  <!-- History -->
-  <div style="margin-top:16px">
-    <div class="st-sec-title">سجل الجولات</div>
-    <div id="nf-history" style="display:flex;flex-direction:column;gap:8px"></div>
+  <div id="nf-panel-islam" class="rpanel"></div>
+  <div id="nf-panel-history" class="rpanel">
+    <div id="nf-history"></div>
   </div>
 </div>
 
 <!-- ISTIGHFAR -->
+
+
 <div class="screen scr-pad" id="s-istighfar" data-s="istighfar">
   <div class="scr-head"><div><div class="scr-title">ماراثون الاستغفار</div><div class="scr-sub">ألف استغفار وما فوق</div></div></div>
   <div class="marathon-hero">
@@ -1218,155 +1468,384 @@ function initBulkAdd(){
   });
 }
 
-// ── NOFAP DATA ────────────────────────────────────────────────
-const NF_PHASES=[
-  {d:0, max:2,   lbl:'البداية',      desc:'أصعب ٧٢ ساعة — جسمك يُعيد البرمجة',  c:'#C85A7A'},
-  {d:3, max:6,   lbl:'المرحلة الأولى',desc:'الدماغ يبدأ الإصلاح — الإرادة تعود', c:'#D4824A'},
-  {d:7, max:13,  lbl:'أسبوع النور',   desc:'انتهت أقوى مرحلة — أنت أقوى مما تظن',c:'#D4AF6A'},
-  {d:14,max:29,  lbl:'توازن الدوبامين',desc:'مستقبلات الدوبامين تعود للطبيعي',    c:'#5A9BC8'},
-  {d:30,max:59,  lbl:'الوضوح الذهني', desc:'٣٠ يوماً — العقل يعمل بكفاءة أعلى',  c:'#4DC87A'},
-  {d:60,max:89,  lbl:'التحول العميق', desc:'الروابط العصبية القديمة تضعف',        c:'#4DC87A'},
-  {d:90,max:179, lbl:'الحرية ٩٠',     desc:'عتبة علمية — غالبية الإدمان تنكسر',  c:'#E8B84A'},
-  {d:180,max:364,lbl:'نصف السنة',     desc:'الدماغ تعافى بشكل شبه كامل',         c:'#E8B84A'},
-  {d:365,max:Infinity,lbl:'سنة حرية', desc:'إنجاز نادر — أنت من القلة المميزة',   c:'#F0C888'}
+
+// ── RESCUE PROTOCOL ──────────────────────────────────────────
+let sprintCount=0, breathInterval=null, stepsDone=new Set();
+
+function openRescue(){
+  sprintCount=0;stepsDone.clear();
+  document.getElementById('dhikr-sprint-cnt').textContent='0';
+  document.getElementById('dhikr-sprint-bar').style.width='0%';
+  document.querySelectorAll('.rescue-step').forEach((s,i)=>{
+    s.classList.remove('active','done');
+    if(i===0)s.classList.add('active');
+  });
+  document.getElementById('rescue-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeRescue(){
+  document.getElementById('rescue-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  if(breathInterval){clearInterval(breathInterval);breathInterval=null}
+}
+function doneStep(n){
+  const el=document.getElementById('rs-'+n);
+  el.classList.remove('active');el.classList.add('done');
+  el.querySelector('.step-btn').innerHTML='✓ مكتملة';
+  el.querySelector('.step-btn').classList.add('done-btn');
+  el.querySelector('.step-num').textContent='✓';
+  stepsDone.add(n);
+  const next=document.getElementById('rs-'+(n+1));
+  if(next){next.classList.add('active');next.scrollIntoView({behavior:'smooth',block:'center'})}
+}
+function sprintTap(){
+  sprintCount++;vib([8]);
+  const pct=Math.min(sprintCount/100*100,100);
+  document.getElementById('dhikr-sprint-cnt').textContent=n(sprintCount);
+  document.getElementById('dhikr-sprint-bar').style.width=pct+'%';
+  const btn=document.getElementById('dhikr-sprint-btn');
+  if(sprintCount>=100){
+    btn.textContent='✓ أكملت ١٠٠ تسبيحة!';btn.classList.add('done-btn');btn.onclick=null;
+    setTimeout(()=>doneStep(3),800);
+    toast('انتصرت على الإغراء بالذكر 🌟','ok',3000);vib([20,10,20,10,30]);
+    addStar();
+  }
+}
+function finishRescue(){
+  closeRescue();
+  toast('🛡️ انتصرت! يوم آخر من الحرية يبدأ','ok',4000);
+  vib([15,8,15,8,25,8,25]);addStar();
+  if(nfState.startDate){
+    // Log that rescue was used (adds resilience score)
+    nfState.rescueCount=(nfState.rescueCount||0)+1;
+    saveNF();
+  }
+}
+
+// Breath protocol 4-7-8
+let bpPhase=0,bpCount=0,bpTimer=null;
+function startBreathProtocol(){
+  if(bpTimer){clearTimeout(bpTimer);bpTimer=null}
+  bpPhase=0;bpCount=0;runBreathPhase();
+}
+const BP=[
+  {word:'استنشق',d:4,class:'inhale',col:'var(--accent-cool)'},
+  {word:'أمسك',d:7,class:'hold',col:'var(--accent-gold)'},
+  {word:'أخرج',d:8,class:'exhale',col:'var(--accent-green)'}
 ];
-const NF_BENEFITS=[
-  {d:1,  icon:'😮‍💨',b:'تهدأ الشهوة الحادة — أول انتصار'},
-  {d:3,  icon:'😴',b:'النوم يتحسن — الدماغ يصلح نفسه ليلاً'},
-  {d:7,  icon:'⚡',b:'طاقة وحيوية ملحوظة — التستوستيرون يرتفع'},
-  {d:14, icon:'🧠',b:'التركيز يزداد — ضباب الدماغ يختفي'},
-  {d:21, icon:'💬',b:'الثقة بالنفس ترتفع — التواصل يتحسن'},
-  {d:30, icon:'🏃',b:'الدوبامين يعود طبيعياً — الفرح الحقيقي يعود'},
-  {d:60, icon:'💪',b:'الإرادة تقوى في كل مجال الحياة'},
-  {d:90, icon:'🌟',b:'إعادة برمجة كاملة للدماغ — حياة جديدة'},
-  {d:180,icon:'🕊️',b:'الحرية الحقيقية — الإغراءات لا تسيطر'},
-  {d:365,icon:'👑',b:'سنة — أنت مثال يُحتذى به'}
-];
-const NF_SOS=[
-  '🌊 الإغراء كموجة — سيمر خلال ٩٠ ثانية إذا لم تتصرف. انتظر.',
-  '🚶 قم وتحرك الآن — غيّر البيئة فوراً، اخرج من الغرفة',
-  '💧 اشرب كوب ماء بارد ببطء — ١٠ رشفات متعمدة',
-  '📿 سبّح ١٠٠ مرة الآن — أو افتح التسبيح واضغط بسرعة',
-  '📞 تواصل مع شخص تثق به — أي موضوع، فقط اكسر العزلة',
-  '🛁 اغسل وجهك بماء بارد أو اغتسل',
-  '📖 اقرأ آية الكرسي ٣ مرات ببطء وتدبر'
-];
-const NF_TRIGGERS_DEF=['الوحدة في الليل','الملل الشديد','التوتر والضغط','قضاء وقت طويل على الهاتف','محتوى مثير على السوشيال ميديا'];
-const NF_ISLAM=[
-  {t:'غضّ البصر',q:'قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ — النور:٣٠',tx:'الإدمان يبدأ من النظر. كل نظرة محرمة تُقوّي الحلقة. غضّ البصر ليس ضعفاً — هو الإرادة الأولى.'},
-  {t:'الصيام علاج',q:'يا معشر الشباب من استطاع منكم الباءة فليتزوج... ومن لم يستطع فعليه بالصوم — متفق عليه',tx:'الصيام يُضعف الشهوة علمياً: يخفض مستوى التستوستيرون مؤقتاً ويُقوّي الإرادة.'},
-  {t:'التوبة تمحو',q:'قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ — الزمر:٥٣',tx:'كل انتكاسة لها توبة. الله يقبل العبد كلما رجع. لا تجعل الانتكاسة ذريعة للاستسلام.'},
-  {t:'الصحبة الصالحة',q:'المرء على دين خليله فلينظر أحدكم من يخالل — حسن صحيح',tx:'الانعزال يُغذّي الإدمان. الانتماء لمجموعة تسعى للطهارة يُضاعف القوة.'},
-  {t:'إشغال النفس',q:'اغتنم خمساً قبل خمس: شبابك قبل هرمك — صحيح',tx:'الفراغ هو ميدان الشيطان. كل ساعة مشغولة بخير هي ساعة محمية.'}
+function runBreathPhase(){
+  const p=BP[bpPhase%3];
+  const circle=document.getElementById('breath-circle');
+  const word=document.getElementById('bp-word');
+  const num=document.getElementById('bp-num');
+  circle.className='breath-circle '+p.class;
+  word.textContent=p.word;word.style.color=p.col;
+  let sec=p.d;
+  num.textContent=n(sec);
+  const tick=setInterval(()=>{sec--;num.textContent=n(sec);if(sec<=0)clearInterval(tick)},1000);
+  bpTimer=setTimeout(()=>{
+    bpPhase++;bpCount++;
+    if(bpCount>=3){word.textContent='أحسنت';num.textContent='✓';return}
+    runBreathPhase();
+  },p.d*1000);
+}
+
+// Replace old SOS section with rescue button
+function replaceSOSwithRescue(){
+  const sos=document.getElementById('nf-sos');
+  if(!sos)return;
+  sos.innerHTML='';
+  sos.style.cssText='margin-bottom:16px';
+  const btn=document.createElement('button');
+  btn.className='rescue-btn';
+  btn.innerHTML='🆘 بروتوكول الإنقاذ — تغلّب على الإغراء الآن';
+  btn.onclick=openRescue;
+  sos.appendChild(btn);
+}
+
+// ── NOFAP COMPREHENSIVE ENGINE ──────────────────────────────
+const BRAIN_METRICS=[
+  {id:'dopamine', lbl:'الدوبامين',      icon:'⚡', desc:'مستقبلات المتعة تعود للطبيعي',    maxDay:90},
+  {id:'focus',    lbl:'التركيز',        icon:'🎯', desc:'القدرة على التركيز المعمّق',       maxDay:60},
+  {id:'will',     lbl:'قوة الإرادة',    icon:'🔥', desc:'مقاومة الإغراءات والانضباط',      maxDay:90},
+  {id:'energy',   lbl:'الطاقة والحيوية',icon:'💪', desc:'النشاط الجسدي والذهني',           maxDay:30},
+  {id:'iman',     lbl:'الإيمان والتوبة',icon:'🌙', desc:'القرب من الله والصفاء الروحي',    maxDay:40},
+  {id:'sleep',    lbl:'جودة النوم',     icon:'😴', desc:'عمق النوم وانتظامه',              maxDay:21},
+  {id:'memory',   lbl:'الذاكرة والتعلّم',icon:'📚', desc:'سرعة الاستيعاب والحفظ',          maxDay:60},
+  {id:'confidence',lbl:'الثقة بالنفس',  icon:'👑', desc:'الهدوء والشخصية أمام الناس',     maxDay:90},
 ];
 
-// ── NOFAP ENGINE ──────────────────────────────────────────────
-let nfState={startDate:null,days:0,runs:[],triggers:[...NF_TRIGGERS_DEF]};
-function loadNF(){const s=LS.get('nf',null);if(s){nfState={...nfState,...s};if(!nfState.triggers)nfState.triggers=[...NF_TRIGGERS_DEF]}}
-function saveNF(){LS.set('nf',nfState)}
-function nfCalcDays(){
+const NF_DAILY_CHALLENGES=[
+  {day:0,  type:'pushup', target:10, label:'١٠ ضغطات — أول انتصار جسدي'},
+  {day:3,  type:'pushup', target:15, label:'١٥ ضغطة — الجسم يستيقظ'},
+  {day:7,  type:'pushup', target:20, label:'٢٠ ضغطة — أسبوع من الثبات'},
+  {day:14, type:'pushup', target:25, label:'٢٥ ضغطة — توازن الهرمونات'},
+  {day:21, type:'pushup', target:30, label:'٣٠ ضغطة — العادة تتجذر'},
+  {day:30, type:'pushup', target:40, label:'٤٠ ضغطة — شهر من الحرية'},
+  {day:60, type:'pushup', target:55, label:'٥٥ ضغطة — التحول العميق'},
+  {day:90, type:'pushup', target:70, label:'٧٠ ضغطة — الحرية ٩٠'},
+];
+
+const NF_QUOTES=[
+  {txt:'"كل مرة تتخطى فيها الألم تبني الـ callus النفسي"',src:'David Goggins',icon:'🧠'},
+  {txt:'"ابدأ بضغطة واحدة — المهم عدم كسر السلسلة"',src:'Atomic Habits — James Clear',icon:'💡'},
+  {txt:'"من استطاع منكم الباءة فليتزوج ومن لم يستطع فعليه بالصوم"',src:'متفق عليه',icon:'🌙'},
+  {txt:'"إن الذين يغضون أبصارهم لهم نور في وجوههم"',src:'الحسن البصري',icon:'✨'},
+  {txt:'"الإدمان ليس ضعفاً — الاستمرار فيه هو الضعف"',src:'تعافٍ مستحيل',icon:'🔥'},
+  {txt:'"لا تحكم على نفسك بأسوأ لحظاتك — انظر لأبعد من ذلك"',src:'علم النفس الإيجابي',icon:'🌟'},
+  {txt:'"قُلْ لِلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ"',src:'النور: ٣٠',icon:'📖'},
+  {txt:'"الدماغ الذي يُغذّى بالإباحية لا يختلف عن دماغ مدمن مخدرات — علمياً"',src:'علم الأعصاب',icon:'🧬'},
+];
+
+const NF_PHASES=[
+  {d:0,  lbl:'البداية',         desc:'أصعب ٧٢ ساعة — جسمك يُعيد البرمجة',c:'#C84060'},
+  {d:3,  lbl:'المرحلة الأولى',  desc:'الدماغ يبدأ الإصلاح — الإرادة تعود',c:'#D4824A'},
+  {d:7,  lbl:'أسبوع النور',     desc:'انتهت أقوى مرحلة — أنت أقوى مما تظن',c:'#E8A830'},
+  {d:14, lbl:'توازن الدوبامين', desc:'مستقبلات الدوبامين تعود للطبيعي',   c:'#5A9BC8'},
+  {d:30, lbl:'الوضوح الذهني',   desc:'٣٠ يوماً — العقل يعمل بكفاءة أعلى',c:'#4DC87A'},
+  {d:60, lbl:'التحول العميق',   desc:'الروابط العصبية القديمة تضعف',       c:'#4DC87A'},
+  {d:90, lbl:'الحرية ٩٠',       desc:'عتبة علمية — غالبية الإدمان تنكسر', c:'#E8B84A'},
+  {d:180,lbl:'نصف السنة',       desc:'الدماغ تعافى بشكل شبه كامل',         c:'#FFD700'},
+  {d:365,lbl:'سنة حرية',        desc:'إنجاز نادر — أنت من القلة المميزة',  c:'#FFD700'},
+];
+
+const NF_BENEFITS=[
+  {d:1,  icon:'😮‍💨',b:'تهدأ الشهوة الحادة — أول انتصار'},
+  {d:3,  icon:'😴',  b:'النوم يتحسن — الدماغ يصلح نفسه ليلاً'},
+  {d:7,  icon:'⚡',  b:'طاقة وحيوية ملحوظة — التستوستيرون يرتفع'},
+  {d:14, icon:'🧠',  b:'التركيز يزداد — ضباب الدماغ يختفي'},
+  {d:21, icon:'💬',  b:'الثقة بالنفس ترتفع — التواصل يتحسن'},
+  {d:30, icon:'🏃',  b:'الدوبامين يعود طبيعياً — الفرح الحقيقي يعود'},
+  {d:60, icon:'💪',  b:'الإرادة تقوى في كل مجال الحياة'},
+  {d:90, icon:'🌟',  b:'إعادة برمجة كاملة للدماغ'},
+  {d:180,icon:'🕊️', b:'الحرية الحقيقية — الإغراءات لا تسيطر'},
+  {d:365,icon:'👑',  b:'سنة — أنت مثال يُحتذى به'},
+];
+
+const NF_ISLAM=[
+  {t:'غضّ البصر',q:'قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ — النور:٣٠',
+   tx:'الإدمان يبدأ من النظر. كل نظرة محرمة تُقوّي الحلقة. غضّ البصر هو الإرادة الأولى.'},
+  {t:'الصيام علاج',q:'من استطاع الباءة فليتزوج ومن لم يستطع فعليه بالصوم — متفق عليه',
+   tx:'الصيام يُضعف الشهوة علمياً ويُقوّي الإرادة. السنة والاثنين والخميس.'},
+  {t:'التوبة تمحو',q:'لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ — الزمر:٥٣',
+   tx:'كل انتكاسة لها توبة. لا تجعل الانتكاسة ذريعة للاستسلام. عُد فوراً.'},
+  {t:'إشغال النفس',q:'اغتنم خمساً قبل خمس: شبابك قبل هرمك',
+   tx:'الفراغ هو ميدان الشيطان. كل ساعة مشغولة بخير هي ساعة محمية.'},
+];
+
+// NoFap state
+let nfState={startDate:null,days:0,best:0,runs:[],rescueCount:0,challengeDoneToday:false,challengeDate:null};
+function loadNF(){const s=LS.get('nf2',null);if(s)nfState={...nfState,...s}}
+function saveNF(){LS.set('nf2',nfState)}
+
+function nfDays(){
   if(!nfState.startDate)return 0;
-  const ms=Date.now()-new Date(nfState.startDate).getTime();
-  return Math.max(0,Math.floor(ms/(1000*60*60*24)));
+  return Math.max(0,Math.floor((Date.now()-new Date(nfState.startDate).getTime())/(864e5)));
 }
-function nfGetPhase(d){return NF_PHASES.slice().reverse().find(p=>d>=p.d)||NF_PHASES[0]}
+function nfPhase(d){return NF_PHASES.slice().reverse().find(p=>d>=p.d)||NF_PHASES[0]}
+function brainPct(metric,days){
+  const pct=Math.min(100,Math.round((days/metric.maxDay)*100));
+  return pct;
+}
+function getDailyChallenge(days){
+  return [...NF_DAILY_CHALLENGES].reverse().find(c=>days>=c.day)||NF_DAILY_CHALLENGES[0];
+}
+
 function renderNoFap(){
   loadNF();
-  const days=nfCalcDays();nfState.days=days;
-  const ph=nfGetPhase(days);
+  const days=nfDays();nfState.days=days;
+  if(nfState.best===undefined)nfState.best=0;
+  if(days>nfState.best)nfState.best=days;
+  const ph=nfPhase(days);
+
   // Hero
   document.getElementById('nf-days').textContent=n(days);
-  if(nfState.startDate){
-    const sd=new Date(nfState.startDate);
-    document.getElementById('nf-since').textContent='منذ '+sd.toLocaleDateString('ar-SA',{day:'numeric',month:'long',year:'numeric'});
-  }else{document.getElementById('nf-since').textContent='ابدأ رحلتك اليوم'}
+  document.getElementById('nf-since').textContent=nfState.startDate
+    ?'منذ '+new Date(nfState.startDate).toLocaleDateString('ar-SA',{day:'numeric',month:'long',year:'numeric'})
+    :'ابدأ رحلتك اليوم';
   const badge=document.getElementById('nf-phase-badge');
-  badge.textContent='المرحلة: '+ph.lbl;
-  badge.style.borderColor=ph.c+'55';badge.style.color=ph.c;badge.style.background=ph.c+'15';
-  // SOS steps
-  const sos=document.getElementById('sos-steps');sos.innerHTML='';
-  NF_SOS.forEach(s=>{const d=document.createElement('div');d.style.cssText='background:rgba(255,255,255,0.03);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--text-dim);line-height:1.6;border:1px solid rgba(255,255,255,0.05)';d.textContent=s;sos.appendChild(d)});
-  // Phases panel
-  const pp=document.getElementById('nf-panel-phases');pp.innerHTML='';
+  badge.textContent=ph.lbl+'  •  يوم '+n(days);
+  badge.style.borderColor=ph.c+'55';badge.style.color=ph.c;badge.style.background=ph.c+'12';
+
+  // Stats
+  document.getElementById('nf-best').textContent=n(nfState.best||0);
+  document.getElementById('nf-runs-cnt').textContent=n((nfState.runs||[]).length);
+  document.getElementById('nf-rescue-cnt').textContent=n(nfState.rescueCount||0);
+
+  // Brain bars
+  const bb=document.getElementById('brain-bars');bb.innerHTML='';
+  BRAIN_METRICS.forEach(m=>{
+    const pct=brainPct(m,days);
+    const color=pct<30?'#C84060':pct<60?'#E8A830':'#4DC87A';
+    const row=document.createElement('div');
+    row.style.cssText='margin-bottom:12px';
+    row.innerHTML=`
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:14px">${m.icon}</span>
+          <span style="font-size:13px;color:var(--text-primary)">${m.lbl}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:10px;color:var(--text-muted)">${m.desc}</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:${color}">${n(pct)}%</span>
+        </div>
+      </div>
+      <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,${color}99,${color});border-radius:3px;transition:width 1s ease-out"></div>
+      </div>`;
+    bb.appendChild(row);
+  });
+
+  // Daily challenge
+  const ch=getDailyChallenge(days);
+  const chDone=nfState.challengeDate===today();
+  document.getElementById('challenge-done-badge').style.display=chDone?'block':'none';
+  const chEl=document.getElementById('daily-challenge-content');
+  chEl.innerHTML='';
+  const chCard=document.createElement('div');
+  chCard.innerHTML=`
+    <div style="font-size:14px;color:var(--text-primary);margin-bottom:10px">${ch.label}</div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div style="font-family:'DM Sans',sans-serif;font-size:48px;font-weight:200;color:var(--accent-warm);line-height:1" id="pushup-cnt">0</div>
+      <div>
+        <div style="font-size:13px;color:var(--text-dim)">من ${n(ch.target)} ضغطة</div>
+        <div style="height:4px;width:120px;background:rgba(255,255,255,0.06);border-radius:2px;margin-top:6px;overflow:hidden">
+          <div id="pushup-bar" style="height:100%;width:0%;background:var(--accent-warm);border-radius:2px;transition:width 0.3s"></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button onclick="pushupTap(${ch.target})" style="flex:2;padding:12px;border-radius:11px;background:rgba(232,168,48,0.15);border:1px solid rgba(232,168,48,0.3);cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:14px;color:var(--accent-warm);font-weight:600" id="pushup-btn">💪 ضغطة</button>
+      ${chDone?'':'<button onclick="skipChallenge()" style="padding:12px 14px;border-radius:11px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);cursor:pointer;font-family:'Noto Naskh Arabic',serif;font-size:12px;color:var(--text-muted)">تخطّي</button>'}
+    </div>`;
+  chEl.appendChild(chCard);
+  if(chDone){
+    document.getElementById('pushup-cnt').textContent=n(ch.target);
+    document.getElementById('pushup-bar').style.width='100%';
+    document.getElementById('pushup-btn').textContent='✓ أكملت التحدي';
+    document.getElementById('pushup-btn').style.background='rgba(32,200,120,0.12)';
+    document.getElementById('pushup-btn').style.borderColor='rgba(32,200,120,0.25)';
+    document.getElementById('pushup-btn').style.color='var(--accent-green)';
+    document.getElementById('pushup-btn').onclick=null;
+  }
+
+  // Quote (rotates daily)
+  const qi=new Date().getDate()%NF_QUOTES.length;
+  const q=NF_QUOTES[qi];
+  document.getElementById('nf-quote').innerHTML=`
+    <div style="font-size:11px;color:var(--accent-cool);margin-bottom:6px">${q.icon} ${q.src}</div>
+    <div style="font-size:14px;color:var(--text-primary);line-height:1.9;font-style:italic">${q.txt}</div>`;
+
+  // SOS → Rescue button
+  replaceSOSwithRescue();
+
+  // Panels
+  renderNFPhases(days);renderNFBenefits(days);renderNFIslam();renderNFHistory();
+}
+
+let pushupCount=0;
+window._pushupTarget=10;
+function pushupTap(target){
+  if(nfState.challengeDate===today())return;
+  pushupCount++;vib([8]);
+  const pct=Math.min(pushupCount/target*100,100);
+  const cntEl=document.getElementById('pushup-cnt');
+  const barEl=document.getElementById('pushup-bar');
+  if(cntEl)cntEl.textContent=n(pushupCount);
+  if(barEl)barEl.style.width=pct+'%';
+  if(pushupCount>=target){
+    nfState.challengeDate=today();saveNF();
+    const btn=document.getElementById('pushup-btn');
+    if(btn){btn.textContent='✓ أكملت التحدي!';btn.style.background='rgba(32,200,120,0.12)';btn.style.color='var(--accent-green)';btn.onclick=null}
+    document.getElementById('challenge-done-badge').style.display='block';
+    toast('أكملت تحدي الضغطات 💪 يوم ممتاز!','ok',3000);vib([15,8,20]);pushupCount=0;
+  }
+}
+function skipChallenge(){pushupCount=0;renderNoFap()}
+
+function renderNFPhases(days){
+  const pp=document.getElementById('nf-panel-phases');if(!pp)return;pp.innerHTML='';
   NF_PHASES.forEach(p=>{
     const done=days>=p.d;
     const el=document.createElement('div');
-    el.style.cssText=`background:var(--bg-card);border-radius:14px;padding:13px 15px;margin-bottom:9px;display:flex;gap:12px;align-items:center;border:1px solid ${done?p.c+'40':'rgba(255,255,255,0.04)'}`;
-    el.innerHTML=`<div style="width:8px;height:8px;border-radius:50%;background:${done?p.c:'rgba(255,255,255,0.15)'};flex-shrink:0"></div>
-    <div><div style="font-size:13px;font-weight:600;color:${done?p.c:'var(--text-dim)'}">${p.lbl} (يوم ${n(p.d)})</div>
+    el.style.cssText=`background:rgba(18,16,42,0.92);border-radius:13px;padding:13px 15px;margin-bottom:9px;display:flex;gap:12px;align-items:center;border:1px solid ${done?p.c+'40':'rgba(155,109,255,0.08)'}`;
+    el.innerHTML=`<div style="width:10px;height:10px;border-radius:50%;background:${done?p.c:'rgba(255,255,255,0.12)'};flex-shrink:0;${done?'box-shadow:0 0 8px '+p.c:''}"></div>
+    <div style="flex:1"><div style="font-size:13px;font-weight:600;color:${done?p.c:'var(--text-dim)'}">${p.lbl} — يوم ${n(p.d)}</div>
     <div style="font-size:11px;color:var(--text-muted);margin-top:3px">${p.desc}</div></div>
-    ${done?'<div style="margin-right:auto;font-size:16px">✓</div>':''}`;
+    ${done?'<div style="font-size:16px;color:'+p.c+'">✓</div>':''}`;
     pp.appendChild(el);
   });
-  // Benefits panel
-  const bp=document.getElementById('nf-panel-benefits');bp.innerHTML='';
+}
+
+function renderNFBenefits(days){
+  const bp=document.getElementById('nf-panel-benefits');if(!bp)return;bp.innerHTML='';
   NF_BENEFITS.forEach(b=>{
     const done=days>=b.d;
     const el=document.createElement('div');
-    el.style.cssText=`background:var(--bg-card);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;gap:12px;align-items:center;border:1px solid rgba(255,255,255,0.04);opacity:${done?1:0.45}`;
+    el.style.cssText=`background:rgba(18,16,42,0.92);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;gap:12px;align-items:center;border:1px solid rgba(155,109,255,0.08);opacity:${done?1:0.42}`;
     el.innerHTML=`<div style="font-size:22px;filter:${done?'none':'grayscale(1)'};">${b.icon}</div>
     <div><div style="font-size:12px;font-weight:600;color:${done?'var(--accent-green)':'var(--text-dim)'}">يوم ${n(b.d)}</div>
     <div style="font-size:12px;color:var(--text-dim);margin-top:2px">${b.b}</div></div>`;
     bp.appendChild(el);
   });
-  // Triggers
-  const tl=document.getElementById('triggers-list');tl.innerHTML='';
-  (nfState.triggers||[]).forEach((t,i)=>{
-    const el=document.createElement('div');
-    el.style.cssText='background:var(--bg-card);border-radius:11px;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,255,255,0.05)';
-    el.innerHTML=`<span style="font-size:13px;color:var(--text-primary)">${t}</span><button style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:16px" data-ti="${i}">×</button>`;
-    el.querySelector('button').addEventListener('click',function(){nfState.triggers.splice(+this.dataset.ti,1);saveNF();renderNoFap()});
-    tl.appendChild(el);
-  });
-  // Islam panel
-  const ip=document.getElementById('nf-panel-islam');ip.innerHTML='';
+}
+
+function renderNFIslam(){
+  const ip=document.getElementById('nf-panel-islam');if(!ip)return;if(ip.children.length)return;
   NF_ISLAM.forEach(it=>{
     const el=document.createElement('div');
-    el.style.cssText='background:linear-gradient(135deg,rgba(90,155,200,0.07),rgba(212,130,74,0.04));border:1px solid rgba(90,155,200,0.13);border-radius:15px;padding:15px;margin-bottom:12px';
-    el.innerHTML=`<div style="font-size:14px;font-weight:600;color:var(--accent-cool);margin-bottom:6px">${it.t}</div>
-    <div style="font-size:13px;color:var(--accent-glow);line-height:1.8;margin-bottom:8px;font-weight:500">${it.q}</div>
+    el.style.cssText='background:linear-gradient(135deg,rgba(90,155,200,0.07),rgba(212,130,74,0.04));border:1px solid rgba(90,155,200,0.14);border-radius:15px;padding:15px;margin-bottom:12px';
+    el.innerHTML=`<div style="font-size:14px;font-weight:700;color:var(--accent-cool);margin-bottom:7px">${it.t}</div>
+    <div style="font-size:13px;color:var(--accent-glow);line-height:1.9;margin-bottom:7px;font-weight:500">${it.q}</div>
     <div style="font-size:12px;color:var(--text-dim);line-height:1.8">${it.tx}</div>`;
     ip.appendChild(el);
   });
-  // History
-  const hl=document.getElementById('nf-history');hl.innerHTML='';
-  (nfState.runs||[]).slice(-5).reverse().forEach((r,i)=>{
+}
+
+function renderNFHistory(){
+  const hl=document.getElementById('nf-history');if(!hl)return;hl.innerHTML='';
+  const runs=nfState.runs||[];
+  if(!runs.length){
+    hl.innerHTML='<div style="font-size:12px;color:var(--text-muted);text-align:center;padding:16px">لا يوجد سجل بعد — ابدأ رحلتك</div>';return;
+  }
+  [...runs].reverse().forEach((r,i)=>{
     const el=document.createElement('div');
-    el.style.cssText='background:var(--bg-card);border-radius:11px;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,255,255,0.04)';
-    el.innerHTML=`<span style="font-size:13px;color:var(--text-dim)">جولة #${n(nfState.runs.length-i)}</span>
-    <span style="font-size:13px;color:var(--accent-warm)">${n(r.days)} يوم</span>
-    <span style="font-size:11px;color:var(--text-muted)">${r.end||'جارية'}</span>`;
+    el.style.cssText='background:rgba(18,16,42,0.92);border-radius:11px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border:1px solid rgba(155,109,255,0.08)';
+    const medal=r.days>=90?'🏆':r.days>=30?'🌕':r.days>=7?'⭐':'🌱';
+    el.innerHTML=`<span style="font-size:16px">${medal}</span>
+    <span style="font-size:13px;color:var(--text-dim)">جولة #${n(runs.length-i)}</span>
+    <span style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:300;color:var(--accent-warm)">${n(r.days)}</span>
+    <span style="font-size:10px;color:var(--text-muted)">يوم</span>`;
     hl.appendChild(el);
   });
-  if(!(nfState.runs||[]).length){const e=document.createElement('div');e.style.cssText='font-size:12px;color:var(--text-muted);text-align:center;padding:12px';e.textContent='لا يوجد سجل بعد — ابدأ رحلتك';hl.appendChild(e)}
 }
+
 function initNoFapEvents(){
   document.getElementById('nf-start-btn').addEventListener('click',()=>{
-    if(nfState.startDate&&confirm('هل تريد إعادة ضبط العداد من اليوم؟')||!nfState.startDate){
-      if(nfState.startDate&&nfState.days>0)nfState.runs=[...(nfState.runs||[]),{days:nfState.days,end:today()}];
-      nfState.startDate=new Date().toISOString();saveNF();renderNoFap();toast('بدأت من اليوم 🕊️ الله معك','ok',3000);vib([20,10,20]);
+    const msg=nfState.startDate?'إعادة ضبط العداد من اليوم؟':'بدأت رحلتك الآن 🕊️';
+    if(!nfState.startDate||confirm(msg)){
+      if(nfState.startDate&&nfState.days>0)nfState.runs=[...(nfState.runs||[]),{days:nfState.days,date:today()}];
+      nfState.startDate=new Date().toISOString();nfState.days=0;
+      if(!nfState.best)nfState.best=0;
+      saveNF();renderNoFap();toast('بدأت من اليوم 🕊️ الله معك','ok',3000);vib([20,10,20]);
     }
   });
   document.getElementById('nf-relapse-btn').addEventListener('click',()=>{
-    if(!confirm('هل تريد تسجيل انتكاسة؟ لا بأس — العودة أهم من الكمال.'))return;
-    if(nfState.startDate&&nfState.days>0)nfState.runs=[...(nfState.runs||[]),{days:nfState.days,end:today()}];
+    if(!confirm('تسجيل انتكاسة؟ لا بأس — العودة أهم من الكمال.'))return;
+    if(nfState.startDate&&nfState.days>0)nfState.runs=[...(nfState.runs||[]),{days:nfState.days,date:today()}];
     nfState.startDate=null;nfState.days=0;saveNF();renderNoFap();
     toast('الله غفور رحيم — ارجع وابدأ من جديد 💙','ok',4000);
   });
-  document.getElementById('add-trigger-btn').addEventListener('click',()=>{
-    askInput('محفز جديد','ما الذي يُشعل الإغراء عندك؟','',val=>{if(val.trim()){if(!nfState.triggers)nfState.triggers=[];nfState.triggers.push(val.trim());saveNF();renderNoFap()}});
-  });
   document.querySelectorAll('[data-nftab]').forEach(t=>t.addEventListener('click',function(){
     document.querySelectorAll('[data-nftab]').forEach(x=>x.classList.remove('on'));
-    ['phases','benefits','triggers','islam'].forEach(p=>{
-      const el=document.getElementById('nf-panel-'+p);if(el)el.style.display='none';
-      const rp=document.getElementById('nf-panel-'+p);if(rp)rp.classList.remove('on');
+    document.querySelectorAll('[data-nftab]').forEach(x=>{
+      const p=document.getElementById('nf-panel-'+x.dataset.nftab);
+      if(p){p.classList.remove('on');p.style.display='none'}
     });
     this.classList.add('on');
     const panel=document.getElementById('nf-panel-'+this.dataset.nftab);
-    if(panel){panel.style.display='block';panel.classList.add('on')}
+    if(panel){panel.classList.add('on');panel.style.display='block'}
   }));
-  // Auto-refresh days every minute
   setInterval(()=>{if(S.screen==='nofap')renderNoFap()},60000);
 }
 
@@ -1432,6 +1911,17 @@ async function boot(){
   initBulkAdd();
   loadNF();
   initNoFapEvents();
+  // Rescue overlay
+  document.getElementById('rescue-close').addEventListener('click', closeRescue);
+  document.getElementById('rescue-overlay').addEventListener('click', function(e){
+    if(e.target===this) closeRescue();
+  });
+  // Replace SOS section with rescue button after NoFap renders
+  const origRenderNoFap = renderNoFap;
+  renderNoFap = function(){
+    origRenderNoFap();
+    replaceSOSwithRescue();
+  };
   // Onboard
   if(!LS.get('ob',false)){document.getElementById('onboard').style.display='flex';document.getElementById('ob-start').addEventListener('click',()=>{document.getElementById('onboard').style.display='none';LS.set('ob',true)})}
   else document.getElementById('onboard').style.display='none';
@@ -1441,10 +1931,103 @@ async function boot(){
 }
 document.addEventListener('DOMContentLoaded',boot);
 </script>
+
+<!-- RESCUE PROTOCOL OVERLAY -->
+<div class="rescue-overlay" id="rescue-overlay">
+  <div class="rescue-header">
+    <button class="rescue-close" id="rescue-close">✕</button>
+    <div class="rescue-title">🛡️ بروتوكول الإنقاذ</div>
+    <div style="width:40px"></div>
+  </div>
+
+  <!-- Step 1: Breathing -->
+  <div class="rescue-step active" id="rs-1">
+    <div class="step-num">١</div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:700;color:var(--accent-cool);margin-bottom:6px">تنفّس معي الآن</div>
+      <div class="step-txt">الإغراء كموجة — سيمر خلال ٩٠ ثانية. اركب الموجة ولا تغرق.</div>
+      <div class="breath-circle" id="breath-circle" onclick="startBreathProtocol()">
+        <div class="breath-word" id="bp-word">ابدأ</div>
+        <div class="breath-num" id="bp-num">٤-٧-٨</div>
+      </div>
+      <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-bottom:10px">اضغط على الدائرة للبدء</div>
+      <button class="step-btn" onclick="doneStep(1)">✓ انتهيت من التنفس</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Move -->
+  <div class="rescue-step" id="rs-2">
+    <div class="step-num">٢</div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:700;color:var(--accent-warm);margin-bottom:6px">غيّر بيئتك فوراً</div>
+      <div class="step-txt">الدماغ يحتاج كسر الحلقة المادية. قم الآن وانتقل لمكان مختلف.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+        <div style="background:rgba(232,168,48,0.1);border:1px solid rgba(232,168,48,0.2);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--accent-warm)">🚿 اذهب للحمام</div>
+        <div style="background:rgba(232,168,48,0.1);border:1px solid rgba(232,168,48,0.2);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--accent-warm)">🚶 اخرج من الغرفة</div>
+        <div style="background:rgba(232,168,48,0.1);border:1px solid rgba(232,168,48,0.2);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--accent-warm)">💧 اشرب ماءً</div>
+      </div>
+      <button class="step-btn" onclick="doneStep(2)">✓ غيّرت مكاني</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Dhikr Sprint -->
+  <div class="rescue-step" id="rs-3">
+    <div class="step-num">٣</div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:700;color:var(--accent-green);margin-bottom:6px">سبّح ١٠٠ مرة الآن</div>
+      <div class="step-txt">الذكر يُعيد توجيه الدماغ فورياً — سبحان الله بسرعة ١٠٠ مرة.</div>
+      <div style="text-align:center;margin:12px 0">
+        <div id="dhikr-sprint-cnt" style="font-family:'DM Sans',sans-serif;font-size:56px;font-weight:200;color:var(--accent-green);line-height:1">0</div>
+        <div style="font-size:12px;color:var(--text-dim)">من ١٠٠</div>
+        <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:2px;margin:10px 0;overflow:hidden">
+          <div id="dhikr-sprint-bar" style="height:100%;background:var(--accent-green);border-radius:2px;width:0%;transition:width 0.2s"></div>
+        </div>
+      </div>
+      <button class="step-btn" id="dhikr-sprint-btn" onclick="sprintTap()" style="font-size:16px;padding:14px;background:rgba(32,200,120,0.15);color:var(--accent-green);border:1px solid rgba(32,200,120,0.3)">
+        سُبْحَانَ اللهِ — انقر
+      </button>
+    </div>
+  </div>
+
+  <!-- Step 4: Dua -->
+  <div class="rescue-step" id="rs-4">
+    <div class="step-num">٤</div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:700;color:var(--accent-cool);margin-bottom:6px">الدعاء الخاص</div>
+      <div style="background:rgba(155,109,255,0.08);border:1px solid rgba(155,109,255,0.2);border-radius:12px;padding:14px;margin:8px 0">
+        <div style="font-size:18px;color:var(--accent-glow);line-height:2;text-align:center;font-weight:600">
+          اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الفَوَاحِشِ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px">كرّرها ٣ مرات — صحيح الجامع</div>
+      <button class="step-btn" onclick="doneStep(4)">✓ قرأت الدعاء</button>
+    </div>
+  </div>
+
+  <!-- Step 5: Commitment -->
+  <div class="rescue-step" id="rs-5">
+    <div class="step-num">٥</div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:700;color:var(--accent-gold);margin-bottom:6px">تعهّد لنفسك</div>
+      <div style="background:rgba(232,168,48,0.06);border:1px solid rgba(232,168,48,0.2);border-radius:12px;padding:14px;margin:8px 0;font-size:14px;color:var(--accent-glow);line-height:1.9">
+        "أنا أقوى من هذا الإغراء. كل مرة أنتصر فيها أُعيد بناء نفسي. الله معي."
+      </div>
+      <button class="step-btn done-btn" onclick="finishRescue()" style="background:linear-gradient(135deg,rgba(32,200,120,0.25),rgba(155,109,255,0.15));border-color:rgba(32,200,120,0.4);font-size:15px;padding:14px">
+        ✨ انتصرت — أغلق البروتوكول
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+    // Relative path works on both Netlify root AND GitHub Pages subpath
+    const swPath = location.pathname.includes('/tasabeeh') 
+      ? '/tasabeeh/sw.js' : '/sw.js';
+    navigator.serviceWorker.register(swPath)
+      .then(r=>console.log('SW registered'))
+      .catch(e=>console.log('SW failed',e));
   });
 }
 </script>
