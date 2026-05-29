@@ -872,7 +872,7 @@ body.dawn .orb-breath-bg{background:radial-gradient(circle,rgba(123,167,200,0.1)
   <div class="ob-logo">📿</div>
   <div class="ob-title">تَسَابِيح ∞</div>
   <div class="ob-txt">مرصدٌ شخصي للروح — كل ذكر نجم، كل يوم التزام كوكبة.<br><br>يعمل بدون إنترنت، لا يجمع بياناتك، لا يعرض إعلانات.</div>
-  <button class="ob-btn" id="ob-start" onclick="startApp()">ابدأ رحلتك</button>
+  <button class="ob-btn" id="ob-start" onclick="(function(){var o=document.getElementById('onboard');if(o)o.style.cssText='display:none!important;opacity:0;pointer-events:none';var h=document.getElementById('s-home');if(h){h.style.opacity='1';h.style.transform='none';h.style.pointerEvents='all';h.classList.add('active')}try{localStorage.setItem('tsb_ob','1')}catch(e){}})()">ابدأ رحلتك</button>
   <div class="ob-ded">صدقة جارية لأرواح شهداء غزة 🇵🇸</div>
 </div>
 
@@ -881,7 +881,7 @@ body.dawn .orb-breath-bg{background:radial-gradient(circle,rgba(123,167,200,0.1)
 
 <script>
 // ── DB ──────────────────────────────────────────────────────
-const DB_N='tsb_inf',DB_V=2;let db=null;
+const DB_N='tsb_inf',DB_V=3;let db=null;
 async function idb(){return new Promise((res,rej)=>{const r=indexedDB.open(DB_N,DB_V);r.onupgradeneeded=e=>{const d=e.target.result;['dhikr_s','ayah_m','habit_e','prayer_l','prayer_t','marathon_s','snap'].forEach(s=>{if(!d.objectStoreNames.contains(s)){const kp={dhikr_s:'id',ayah_m:'groupId',habit_e:'id',prayer_l:'date',prayer_t:'key',marathon_s:'id',snap:'ts'};d.createObjectStore(s,{keyPath:kp[s]})}})};r.onsuccess=e=>{db=e.target.result;res()};r.onerror=()=>rej(r.error)})}
 async function put(s,o){return new Promise((res,rej)=>{const tx=db.transaction(s,'readwrite');tx.objectStore(s).put(o).onsuccess=e=>res(e.target.result);tx.onerror=()=>rej()})}
 async function get(s,k){return new Promise(res=>{const r=db.transaction(s,'readonly').objectStore(s).get(k);r.onsuccess=()=>res(r.result);r.onerror=()=>res(null)})}

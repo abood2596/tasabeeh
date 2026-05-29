@@ -1,4 +1,4 @@
-const CACHE = 'tsb-v3';
+const CACHE = 'tsb-v4';
 const BASE = self.location.pathname.replace('/sw.js','');
 
 // All assets relative to SW location
