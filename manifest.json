@@ -1,66 +1,19 @@
 {
-  "id": "./",
-  "name": "تَسَابِيح ∞ v18",
+  "name": "تَسَابِيح ∞",
   "short_name": "تسابيح",
-  "description": "ورد يومي، سورة البقرة، إحصائيات متقدمة — صدقة جارية لفلسطين",
-  "start_url": "./",
-  "scope": "./",
+  "description": "مرصد روحي شخصي — ذكر، سورة البقرة، استغفار، صلاة، عادات",
+  "start_url": "/",
   "display": "standalone",
-  "display_override": [
-    "standalone",
-    "minimal-ui"
-  ],
-  "orientation": "portrait-primary",
-  "background_color": "#0a0a0f",
-  "theme_color": "#0a0a0f",
+  "orientation": "portrait",
+  "background_color": "#0B0D14",
+  "theme_color": "#0B0D14",
   "lang": "ar",
   "dir": "rtl",
-  "categories": [
-    "lifestyle",
-    "utilities",
-    "education"
-  ],
   "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ],
-  "shortcuts": [
-    {
-      "name": "الورد اليومي",
-      "url": "./",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "سورة البقرة",
-      "url": "./",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ],
-  "prefer_related_applications": false
+  "categories": ["lifestyle", "utilities"],
+  "screenshots": []
 }
